@@ -1,14 +1,12 @@
 
 module "dns-private-zone" {
   source = "../.."
-  # version = "~> 5.0"
 
   project_id  = var.project_id
   type        = "private"
   name        = var.name
   domain      = var.domain
   description = "Manage by CloudDrove"
-  # labels     = var.labels
 
   private_visibility_config_networks = [var.network_self_links]
 

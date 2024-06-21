@@ -7,6 +7,6 @@ module "dns-peering-zone" {
   type                               = "peering"
   name                               = var.name
   domain                             = var.domain
-  private_visibility_config_networks = ["https://www.googleapis.com/compute/v1/projects/${var.project_id}/global/networks/jetic-dev-vpc"]
-  target_network                     = "https://www.googleapis.com/compute/v1/projects/${var.project_id}/global/networks/module-test"
+  private_visibility_config_networks = ["https://www.googleapis.com/compute/v1/projects/${var.project_id}/global/networks/dev-vpc"]
+  target_network                     = "https://www.googleapis.com/compute/v1/projects/${var.project_id}/global/networks/test-vpc"
 }

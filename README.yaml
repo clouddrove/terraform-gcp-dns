@@ -30,15 +30,12 @@ badges:
 
 #  description of this project
 description: |-
-  Terraform module to create subnet resource on google.
-# extra content
-include:
-  - "terraform.md"
+  Terraform module to create DNS zone on google.
 
 
 usage: |-
   Here are some examples of how you can use this module in your inventory structure:
-  ### Default subnet
+  ### Default DNS
   ```hcl
   module "dns-public-zone" {
     source = "clouddrove/dns/google"

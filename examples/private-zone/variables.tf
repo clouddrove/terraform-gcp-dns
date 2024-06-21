@@ -8,7 +8,7 @@ variable "project_id" {
 variable "network_self_links" {
   type        = string
   description = "Self link of the network that will be allowed to query the zone."
-  default     = []
+  default     = ""
 }
 
 variable "name" {

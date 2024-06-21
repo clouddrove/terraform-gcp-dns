@@ -72,34 +72,6 @@ variable "force_destroy" {
   type        = bool
 }
 
-
-###############################################################################
-#                               record variables                              #
-###############################################################################
-
-variable "recordsets" {
-  type = list(object({
-    name    = string
-    type    = string
-    ttl     = number
-    records = optional(list(string), null)
-
-    routing_policy = optional(object({
-      wrr = optional(list(object({
-        weight  = number
-        records = list(string)
-      })), [])
-      geo = optional(list(object({
-        location = string
-        records  = list(string)
-      })), [])
-    }))
-  }))
-
-  description = "List of DNS record objects to manage, in the standard terraform dns structure."
-  default     = []
-}
-
 variable "enable_logging" {
   description = "Enable query logging for this ManagedZone"
   default     = false

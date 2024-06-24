@@ -31,12 +31,12 @@ badges:
 prerequesties:
   - name: Terraform
     url: https://learn.hashicorp.com/terraform/getting-started/install.html
-    version: ">= 1.7.0"
+    version: ">= 0.13"
     
 providers:
   - name: gcp
     url: https://cloud.google.com/
-    version: ">= 0.13"
+    version: ">= 4.40, < 6"
 
 #  description of this project
 description: |-

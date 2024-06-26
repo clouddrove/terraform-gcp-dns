@@ -5,40 +5,101 @@
 #
 
 # Name of this project
-name : Terraform Module Template
+name : Terraform GCP DNS
 
 # License of this project
 license: "APACHE"
 
 # Canonical GitHub repo
-github_repo: clouddrove/terraform-module-template
+github_repo: clouddrove/terraform-gcp-dns
 
 # Badges to display
 badges:
   - name: "Latest Release"
-    image: "https://img.shields.io/github/release/clouddrove/terraform-module-template.svg"
-    url: "https://github.com/clouddrove/terraform-module-template/releases/latest"
+    image: "https://img.shields.io/github/release/clouddrove/terraform-gcp-dns.svg"
+    url: "https://github.com/clouddrove/terraform-gcp-dns/releases/latest"
   - name: "tfsec"
-    image: "https://github.com/clouddrove/terraform-module-template/actions/workflows/tfsec.yml/badge.svg"
-    url: ""
+    image: "https://github.com/clouddrove/terraform-gcp-dns/actions/workflows/tfsec.yml/badge.svg"
+    url: "https://github.com/clouddrove/terraform-gcp-dns/actions/workflows/tfsec.yml"
   - name: "Licence"
     image: "https://img.shields.io/badge/License-APACHE-blue.svg"
     url: "LICENSE.md"
-
+  - name: "Changelog"
+    image: "https://img.shields.io/badge/Changelog-blue"
+    url: "CHANGELOG.md"
+  
 prerequesties:
-  - name: Terraform 1.4.6
+  - name: Terraform
     url: https://learn.hashicorp.com/terraform/getting-started/install.html
+    version: ">= 0.13"
     
+providers:
+  - name: gcp
+    url: https://cloud.google.com/
+    version: ">= 4.40, < 6"
+
 #  description of this project
 description: |-
-  Terraform module template to create new modules using this as baseline
-# extra content
-include:
-  - "terraform.md"
+  Terraform module to create DNS zone on google.
 
-# How to use this project
-# How to use this project
+
 usage: |-
   Here are some examples of how you can use this module in your inventory structure:
+  ### Default DNS
   ```hcl
-    ```
+  module "dns-public-zone" {
+    source = "clouddrove/dns/google"
+    
+    project_id                         = var.project_id
+    type                               = "public"
+    name                               = var.name
+    domain                             = var.domain
+    description                        = "Manage by CloudDrove"
+
+
+    enable_logging = true
+
+    recordsets = [
+      {
+        name = "ns"
+        type = "A"
+        ttl  = 300
+        records = [
+          "127.0.0.1",
+        ]
+      },
+      {
+        name = "name-server"
+        type = "NS"
+        ttl  = 300
+        records = [
+          "ns.${var.domain}",
+        ]
+      },
+      {
+        name = "localhost"
+        type = "A"
+        ttl  = 300
+        records = [
+          "127.0.0.1",
+        ]
+      },
+      {
+        name = ""
+        type = "MX"
+        ttl  = 300
+        records = [
+          "1 localhost.",
+        ]
+      },
+      {
+        name = ""
+        type = "TXT"
+        ttl  = 300
+        records = [
+          "\"v=spf1 -all\"",
+        ]
+      },
+    ]
+  }
+  ```

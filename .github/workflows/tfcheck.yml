@@ -6,16 +6,16 @@ on:
   workflow_dispatch:
 jobs:
   tf-checks-peering:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.2.6
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.2.8
     with:
       working_directory: './examples/peering-zone'
 
   tf-checks-private:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.2.6
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.2.8
     with:
       working_directory: './examples/private-zone'
 
   tf-checks-public:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.2.6
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.2.8
     with:
       working_directory: './examples/public-zone'

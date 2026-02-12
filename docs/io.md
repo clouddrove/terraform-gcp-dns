@@ -25,4 +25,3 @@
 | name | The DNS zone name. |
 | name\_servers | The DNS zone name servers. |
 | type | The DNS zone type. |
-

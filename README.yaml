@@ -27,12 +27,12 @@ badges:
   - name: "Changelog"
     image: "https://img.shields.io/badge/Changelog-blue"
     url: "CHANGELOG.md"
-  
+
 prerequesties:
   - name: Terraform
     url: https://learn.hashicorp.com/terraform/getting-started/install.html
     version: ">= 0.13"
-    
+
 providers:
   - name: gcp
     url: https://cloud.google.com/
@@ -49,7 +49,7 @@ usage: |-
   ```hcl
   module "dns-public-zone" {
     source = "clouddrove/dns/google"
-    
+
     project_id                         = var.project_id
     type                               = "public"
     name                               = var.name

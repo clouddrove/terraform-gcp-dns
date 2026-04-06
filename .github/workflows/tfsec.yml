@@ -8,7 +8,7 @@ jobs:
     uses: clouddrove/github-shared-workflows/.github/workflows/tfsec.yml@1.4.0
     # secrets: inherit
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB: ${{ secrets.GITHUB_TOKEN }}
     with:
       working_directory: './examples/peering-zone'
     

@@ -5,11 +5,6 @@ on:
   pull_request:
   workflow_dispatch:
 name: tf-checks
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-  workflow_dispatch:
 
 jobs:
   tf-checks-peering:

@@ -4,18 +4,31 @@ on:
     branches: [ master ]
   pull_request:
   workflow_dispatch:
+name: tf-checks
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_dispatch:
+
 jobs:
   tf-checks-peering:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@2.0.0
     with:
+      provider: none
+      enable_version_check: true
       working_directory: './examples/peering-zone'
 
   tf-checks-private:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@2.0.0
     with:
+      provider: none
+      enable_version_check: true
       working_directory: './examples/private-zone'
 
   tf-checks-public:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@2.0.0
     with:
+      provider: none
+      enable_version_check: true
       working_directory: './examples/public-zone'

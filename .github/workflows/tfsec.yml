@@ -5,10 +5,10 @@ on:
   workflow_dispatch:
 jobs:
   tfsec:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tfsec.yml@v2
+    uses: clouddrove/github-shared-workflows/.github/workflows/tfsec.yml@1.4.0
     # secrets: inherit
     secrets:
-      GITHUB: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
-      working_directory: './examples/'
+      working_directory: './examples/peering-zone'
     
